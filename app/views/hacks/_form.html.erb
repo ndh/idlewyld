@@ -1,0 +1,52 @@
+<%= form_for @hack, :html => { :class => "form-horizontal hack" } do |f| %>
+
+    <% if @hack.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@hack.errors.count, "error") %> prohibited this hack from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @hack.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@hack[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@hack[:description]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :product_owner, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :product_owner, :class => 'form-control' %>
+    </div>
+    <%= error_span(@hack[:product_owner]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :backlog_location, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :backlog_location, :class => 'form-control' %>
+    </div>
+    <%= error_span(@hack[:backlog_location]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            hacks_path, :class => 'btn btn-default' %>
+
+<% end %>

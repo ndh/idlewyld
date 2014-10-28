@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:product_owner) %></th>
@@ -17,11 +16,10 @@
   <tbody>
     <% @hacks.each do |hack| %>
       <tr>
-        <td><%= link_to hack.id, hack_path(hack) %></td>
-        <td><%= hack.name %></td>
+        <td><%= link_to hack.name, hack_path(hack) %></td>
         <td><%= hack.description %></td>
-        <td><%= hack.product_owner %></td>
-        <td><%= hack.backlog_location %></td>
+        <td><%= mail_to(hack.product_owner,hack.product_owner) %></td>
+        <td><%= link_to(hack.backlog_location,hack.backlog_location) %></td>
         <td><%=l hack.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

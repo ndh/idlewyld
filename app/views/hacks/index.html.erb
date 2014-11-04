@@ -9,6 +9,7 @@
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:product_owner) %></th>
       <th><%= model_class.human_attribute_name(:backlog_location) %></th>
+      <th><%= model_class.human_attribute_name(:repo_url) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -20,6 +21,7 @@
         <td><%= hack.description %></td>
         <td><%= mail_to(hack.product_owner,hack.product_owner) %></td>
         <td><%= link_to(hack.backlog_location,hack.backlog_location) %></td>
+        <td><%= link_to(hack.repo_url,hack.repo_url) %></td>        
         <td><%=l hack.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

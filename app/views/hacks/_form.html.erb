@@ -50,6 +50,13 @@
     </div>
     <%= error_span(@hack[:repo_url]) %>
   </div>
+  <div class="control-group">
+    <%= f.label :hipchat_room, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hipchat_room, :class => 'form-control' %>
+    </div>
+    <%= error_span(@hack[:hipchat_room]) %>
+  </div>
 
 
   <%= f.submit nil, :class => 'btn btn-primary' %>

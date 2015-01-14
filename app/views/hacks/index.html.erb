@@ -20,8 +20,16 @@
         <td><%= link_to hack.name, hack_path(hack) %></td>
         <td><%= hack.description %></td>
         <td><%= mail_to(hack.product_owner,hack.product_owner) %></td>
-        <td><%= link_to(hack.backlog_location,hack.backlog_location) %></td>
-        <td><%= link_to(hack.repo_url,hack.repo_url) %></td>        
+        <td>
+        <% hack.backlog_location.split(/,\s*|\s+/).each do |link| %>
+          <%= link_to(link, link) %><br />
+        <% end %>
+        </td>
+        <td>
+          <% hack.repo_url.split(/,\s*|\s+/).each do |link| %>
+            <%= link_to(link, link) %><br />
+          <% end %>
+        </td>        
         <td><%=l hack.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

@@ -11,9 +11,17 @@
   <dt><strong><%= model_class.human_attribute_name(:product_owner) %>:</strong></dt>
   <dd><%= @hack.product_owner %></dd>
   <dt><strong><%= model_class.human_attribute_name(:backlog_location) %>:</strong></dt>
-  <dd><%= link_to(@hack.backlog_location) %></dd>
+  <dd>
+    <% @hack.backlog_location.split(/,\s*|\s+/).each do |link| %>
+      <%= link_to(link, link) %><br />
+    <% end %>
+  </dd>
   <dt><strong><%= model_class.human_attribute_name(:repo_url) %>:</strong></dt>
-  <dd><%= link_to(@hack.repo_url) %></dd>
+  <dd>
+    <% @hack.repo_url.split(/,\s*|\s+/).each do |link| %>
+      <%= link_to(link, link) %><br />
+    <% end %>
+  </dd>        
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

@@ -1,28 +1,27 @@
-== README
+= README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Idlewyld is a dead simple tracker for project/hack ideas
 
-Things you may want to cover:
+== Deployment:
 
-* Ruby version
+=== Production
 
-* System dependencies
+idlewyld is built to be deployed on heroku
 
-* Configuration
+=== Development
 
-* Database creation
+==== In order to deploy locally you will need:
 
-* Database initialization
+* ruby 2.0.0
+  * using rbenv is an easy way to get the specific version of ruby, rbenv install 2.0.0, rbenv local 2.0.0
+* bundler
+  * gem install bundler
+* postgres
+  * installing postgres is easy using Homebrew, brew install postgres
 
-* How to run the test suite
+==== Steps to run the application:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* bundle install
+* start postgres if not already started, postgres -D /usr/local/var/postgres
+* setup the Database, bin/rake db:create db:migrate
+* start the application, rails server
